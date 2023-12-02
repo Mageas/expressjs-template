@@ -2,7 +2,9 @@ import * as dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
 
-import { authorRouter } from "./api/routes/author.router";
+import log from "./utils/logger";
+
+import { authorRouter } from "./routes/author.router";
 
 dotenv.config();
 
@@ -20,5 +22,5 @@ app.use(express.json());
 app.use("/api/authors", authorRouter);
 
 app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}`);
+  log.info(`Server listing on port ${PORT}`);
 });

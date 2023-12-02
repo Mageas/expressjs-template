@@ -1,4 +1,4 @@
-import { db } from "../../config/db.server";
+import db from "../utils/database";
 
 type Author = {
   id: number;
