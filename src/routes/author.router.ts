@@ -1,5 +1,14 @@
 import express from "express";
 
+import validate from "../middlewares/validateRequest";
+
+import {
+  getAuthorSchema,
+  createAuthorSchema,
+  updateAuthorSchema,
+  deleteAuthorSchema,
+} from "../schema/author.schema";
+
 import {
   listAuthorsController,
   getAuthorController,
@@ -12,10 +21,14 @@ export const authorRouter = express.Router();
 
 authorRouter.get("/", listAuthorsController);
 
-authorRouter.post("/", createAuthorController);
+authorRouter.post("/", validate(createAuthorSchema), createAuthorController);
 
-authorRouter.get("/:id", getAuthorController);
+authorRouter.get("/:id", validate(getAuthorSchema), getAuthorController);
 
-authorRouter.put("/:id", updateAuthorController);
+authorRouter.put("/:id", validate(updateAuthorSchema), updateAuthorController);
 
-authorRouter.delete("/:id", deleteAuthorController);
+authorRouter.delete(
+  "/:id",
+  validate(deleteAuthorSchema),
+  deleteAuthorController
+);
