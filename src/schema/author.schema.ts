@@ -18,8 +18,8 @@ export const updateAuthorSchema = object({
     id: number().required(),
   }),
   body: object({
-    firstName: string().required().min(3),
-    lastName: string().required().min(3),
+    firstName: string().optional().min(3),
+    lastName: string().optional().min(3),
   }),
 });
 
