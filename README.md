@@ -3,7 +3,7 @@
 Deps:
 
 ```bash
-npm i express dotenv cors yup pino dayjs @prisma/client
+npm i express dotenv cors yup pino pino-pretty @prisma/client
 ```
 
 Dev deps:
